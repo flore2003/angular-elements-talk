@@ -5,9 +5,51 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Awesome Element Demo Page</title>
+    <script
+        src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E="
+        crossorigin="anonymous"></script>
 </head>
 <body>
+
+    <ul>
+        <li>
+            <input type="radio" name="framework" id="angular" value="Angular" checked />
+            <label for="angular">Angular</label>
+        </li>
+        <li>
+            <input type="radio" name="framework" id="vue" value="Vue.js" />
+            <label for="vue">Vue.js</label>
+        </li>
+        <li>
+            <input type="radio" name="framework" id="react" value="React" />
+            <label for="react">React</label>
+        </li>
+    </ul>
+
     <awesome-element name="Angular"></awesome-element>
+
+    <p id="output"></p>
+    
     <script type="text/javascript" src="../awesome-element/elements/awesome-element.js"></script>
+    <script>
+        var element = $('awesome-element');
+
+        // Listen for our custom 'awesomeClick' event/output and display a message,
+        // once it was called 20 times
+        var clickCount = 0;
+        element.on('awesomeClick', function(click) {
+            clickCount++;
+            if (clickCount === 20) {
+                $('#output').text('You clicked 20 times, awesome!');
+            }
+        });
+
+        // Set the name attribute of our awesome-element to the selected value
+        $('input[type="radio"][name="framework"]').change(function() {
+            element.attr('name', this.value);
+        });
+    </script>
+
 </body>
 </html>
