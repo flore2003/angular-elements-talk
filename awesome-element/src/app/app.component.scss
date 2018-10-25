@@ -1,0 +1,29 @@
+:host {
+    font-family: sans-serif;
+}
+
+h1 {
+    font-size: 1.25rem;
+    font-weight: 500;
+}
+
+button {
+    background: #e6c50e;
+    color: #5c4f06;
+    border: none;
+    padding: 1rem 2rem;
+    font-family: inherit;
+    font-weight: 500;
+    font-size: 1rem;
+    border-radius: 0.5rem;
+    transition: all 300ms;
+    cursor: pointer;
+
+    &:hover {
+        background: #f3d633;
+    }
+}
+
+p {
+    font-size: 0.75rem;
+}
